@@ -244,15 +244,7 @@ program: programh
                 $$ = Value::None;
             }
 
-    comp: AND
-            {
-                $$ = Value::None;
-            }
-        | OR
-            {
-                $$ = Value::None;
-            } 
-        | EQ
+    comp: EQ
             {
                 $$ = Value::None;
             } 
