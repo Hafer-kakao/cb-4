@@ -168,7 +168,7 @@ impl C1Lexer {
         lexer
     }
 
-    /**
+    /*
     Take the next C1Token and convert it into a crate::parser::Token that can be interpreted by the parser.
     This method consumes (eats) the token that it returns.
     */

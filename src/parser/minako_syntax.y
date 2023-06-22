@@ -56,12 +56,330 @@
 
 %%
 
-program:
-	// empty
-	{
+program: programh 
+        {
+            self.result = 0;
             $$ = Value::None;
         }
 
+    programh: declassignment ';' programh
+            {
+                $$ = Value::None;
+            }
+        | functiondefinition programh
+            {
+                $$ = Value::None;
+            }
+        |
+            {
+                $$ = Value::None;
+            }
+
+    functiondefinition: type id '(' parameterlist ')' '{' statementlist '}'
+            {
+                $$ = Value::None;
+            }
+        | type id '(' ')' '{' statementlist '}'
+            {
+                $$ = Value::None;
+            }
+    
+    parameterlist: type id ',' parameterlist
+            {
+                $$ = Value::None;
+            }
+        | type id
+            {
+                $$ = Value::None;
+            }
+
+    functioncall: id '(' assignmentlist ')'
+            {
+                $$ = Value::None;
+            }
+        | id '(' ')'
+            {
+                $$ = Value::None;
+            }
+
+    assignmentlist: assignment ',' assignmentlist
+            {
+                $$ = Value::None;
+            }
+        | type id
+            {
+                $$ = Value::None;
+            }
+
+    statementlist: block statementlist
+            {
+                $$ = Value::None;
+            }
+        | 
+            {
+                $$ = Value::None;
+            }
+    
+    block: '{' statementlist '}'
+            {
+                $$ = Value::None;
+            }
+        | statement 
+            {
+                $$ = Value::None;
+            }
+
+    statement: ifstatement
+            {
+                $$ = Value::None;
+            }
+        | forstatement 
+            {
+                $$ = Value::None;
+            }
+        | whilestatement 
+            {
+                $$ = Value::None;
+            }
+        | returnstatement ';'
+            {
+                $$ = Value::None;
+            }
+        | dowhilestatement ';'
+            {
+                $$ = Value::None;
+            }
+        | printf ';'
+            {
+                $$ = Value::None;
+            }
+        | declassignment ';'
+            {
+                $$ = Value::None;
+            }
+        | statassignment ';'
+            {
+                $$ = Value::None;
+            }
+        | functioncall ';'
+            {
+                $$ = Value::None;
+            }
+
+    ifstatement: KW_IF '(' assignment ')' block KW_ELSE block
+            {
+                $$ = Value::None;
+            }
+        | KW_IF '(' assignment ')' block
+            {
+                $$ = Value::None;
+            }
+
+    forstatement: KW_FOR '(' statassignment ';' expr ';' statassignment ')' block
+            {
+                $$ = Value::None;
+            } 
+        | KW_FOR '(' declassignment ';' expr ';' statassignment ')' block
+            {
+                $$ = Value::None;
+            }
+
+    dowhilestatement: KW_DO block KW_WHILE '(' assignment ')'
+            {
+                $$ = Value::None;
+            }
+
+    whilestatement: KW_WHILE '(' assignment ')' block
+            {
+                $$ = Value::None;
+            }
+
+    returnstatement: KW_RETURN assignment
+            {
+                $$ = Value::None;
+            }
+        | KW_RETURN 
+            {
+                $$ = Value::None;
+            }
+
+    printf: KW_PRINTF '(' assignment ')'
+            {
+                $$ = Value::None;
+            }
+        | KW_PRINTF '(' CONST_STRING ')'
+            {
+                $$ = Value::None;
+            }
+
+    declassignment: type id '=' assignment
+            {
+                $$ = Value::None;
+            }
+        | type id
+            {
+                $$ = Value::None;
+            }
+    
+    statassignment: id '=' assignment
+            {
+                $$ = Value::None;
+            }
+
+    assignment: id '=' assignment
+            {
+                $$ = Value::None;
+            } 
+        | expr 
+            {
+                $$ = Value::None;
+            }
+
+    expr: simpexpr comp simpexpr
+            {
+                $$ = Value::None;
+            }
+        | simpexpr
+            {
+                $$ = Value::None;
+            }
+
+    comp: AND
+            {
+                $$ = Value::None;
+            }
+        | OR
+            {
+                $$ = Value::None;
+            } 
+        | EQ
+            {
+                $$ = Value::None;
+            } 
+        | NEQ
+            {
+                $$ = Value::None;
+            }
+        | LEQ
+            {
+                $$ = Value::None;
+            }
+        | GEQ
+            {
+                $$ = Value::None;
+            }
+        | LSS
+            {
+                $$ = Value::None;
+            }
+        | GRT
+            {
+                $$ = Value::None;
+            }
+
+    simpexpr: nterm simpexprfn
+
+    nterm: '-' term
+            {
+                $$ = Value::None;
+            }
+        | term
+            {
+                $$ = Value::None;
+            }
+
+    simpexprfn: op1 term simpexprfn
+            {
+                $$ = Value::None;
+            }
+        | 
+            {
+                $$ = Value::None;
+            }
+
+    op1: '+' 
+            {
+                $$ = Value::None;
+            }
+        | '-'
+            {
+                $$ = Value::None;
+            }
+        | OR
+            {
+                $$ = Value::None;
+            }
+
+    term: factor termfn
+            {
+                $$ = Value::None;
+            }
+
+    termfn: op2 factor
+            {
+                $$ = Value::None;
+            }
+        | 
+            {
+                $$ = Value::None;
+            }
+
+    op2: '*' 
+            {
+                $$ = Value::None;
+            }
+        | '/'
+            {
+                $$ = Value::None;
+            }
+        | AND
+            {
+                $$ = Value::None;
+            }
+
+    factor: CONST_INT
+            {
+                $$ = Value::None;
+            }
+        | CONST_FLOAT
+            {
+                $$ = Value::None;
+            }
+        | CONST_BOOLEAN
+            {
+                $$ = Value::None;
+            }
+        | functioncall
+            {
+                $$ = Value::None;
+            }
+        | id
+            {
+                $$ = Value::None;
+            }
+        | '(' assignment ')'
+            {
+                $$ = Value::None;
+            }
+
+
+    type: KW_BOOLEAN
+            { 
+                $$ = Value::None;
+            }
+        | KW_FLOAT
+            {
+                $$ = Value::None;
+            }
+        | KW_INT
+            {
+                $$ = Value::None;
+            }
+
+    id: ID 
+            {
+                $$ = Value::None;
+            }
 
 %%
 

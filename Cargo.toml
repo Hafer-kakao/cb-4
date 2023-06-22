@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 logos = "0.12.0"
+rust-bison-skeleton = "0.41.0"
 
 [build-dependencies]
 rust-bison-skeleton = "0.41.0"
