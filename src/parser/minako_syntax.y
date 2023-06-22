@@ -53,7 +53,7 @@
 // LOWER_THAN_ELSE stands for a not existing else
 %nonassoc LOWER_THAN_ELSE
 %nonassoc KW_ELSE
-
+%left KW_ELSE
 %%
 
 program: programh 
@@ -106,7 +106,7 @@ program: programh
             {
                 $$ = Value::None;
             }
-        | type id
+        | assignment
             {
                 $$ = Value::None;
             }
