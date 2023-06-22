@@ -221,7 +221,7 @@ program: programh
                 $$ = Value::None;
             }
     
-    statassignment: '=' assignment
+    statassignment: id '=' assignment
             {
                 $$ = Value::None;
             }
