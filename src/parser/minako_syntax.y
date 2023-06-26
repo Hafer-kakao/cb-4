@@ -162,13 +162,9 @@ program: programh
         | functioncall ';'
             {
                 $$ = Value::Lol;
-            }
+            }   
 
     ifstatement: KW_IF '(' assignment ')' block
-            {
-                $$ = Value::Lol;
-            }
-        | KW_IF '(' assignment ')' block
             {
                 $$ = Value::Lol;
             }
