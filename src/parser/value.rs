@@ -17,6 +17,8 @@ pub enum Value {
     /// Required variant, parser expects it to be defined.
     /// Represents a token that is returned from a Lexer
     Token(Token),
+
+    Lol,
 }
 
 impl Default for Value {

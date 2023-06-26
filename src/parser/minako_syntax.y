@@ -58,319 +58,318 @@
 
 program: programh 
         {
-            self.result = 0;
             $$ = Value::None;
         }
 
     programh: declassignment ';' programh
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | functiondefinition programh
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         |
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     functiondefinition: type id '(' parameterlist ')' '{' statementlist '}'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | type id '(' ')' '{' statementlist '}'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
     
     parameterlist: type id ',' parameterlist
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | type id
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     functioncall: id '(' assignmentlist ')'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | id '(' ')'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     assignmentlist: assignment ',' assignmentlist
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | assignment
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     statementlist: block statementlist
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
     
     block: '{' statementlist '}'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | statement 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     statement: ifstatement
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | forstatement 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | whilestatement 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | returnstatement ';'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | dowhilestatement ';'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | printf ';'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | declassignment ';'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | statassignment ';'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | functioncall ';'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     ifstatement: KW_IF '(' assignment ')' block KW_ELSE block
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | KW_IF '(' assignment ')' block
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     forstatement: KW_FOR '(' statassignment ';' expr ';' statassignment ')' block
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             } 
         | KW_FOR '(' declassignment ';' expr ';' statassignment ')' block
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     dowhilestatement: KW_DO block KW_WHILE '(' assignment ')'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     whilestatement: KW_WHILE '(' assignment ')' block
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     returnstatement: KW_RETURN assignment
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | KW_RETURN 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     printf: KW_PRINTF '(' assignment ')'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | KW_PRINTF '(' CONST_STRING ')'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     declassignment: type id '=' assignment
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | type id
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
     
     statassignment: id '=' assignment
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     assignment: id '=' assignment
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             } 
         | expr 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     expr: simpexpr comp simpexpr
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | simpexpr
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     comp: EQ
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             } 
         | NEQ
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | LEQ
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | GEQ
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | LSS
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | GRT
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     simpexpr: nterm simpexprfn
 
     nterm: '-' term
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | term
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     simpexprfn: op1 term simpexprfn
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     op1: '+' 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | '-'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | OR
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     term: factor termfn
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     termfn: op2 factor
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     op2: '*' 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | '/'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | AND
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     factor: CONST_INT
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | CONST_FLOAT
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | CONST_BOOLEAN
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | functioncall
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | id
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | '(' assignment ')'
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
 
     type: KW_BOOLEAN
             { 
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | KW_FLOAT
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
         | KW_INT
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
     id: ID 
             {
-                $$ = Value::None;
+                $$ = Value::Lol;
             }
 
 %%
