@@ -368,6 +368,10 @@ program: programh
             {
                 $$ = Value::None;
             }
+        | KW_VOID
+            {
+                $$ = Value::None;
+            }
 
     id: ID 
             {
