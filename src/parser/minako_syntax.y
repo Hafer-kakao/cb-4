@@ -53,7 +53,6 @@
 // LOWER_THAN_ELSE stands for a not existing else
 %nonassoc LOWER_THAN_ELSE
 %nonassoc KW_ELSE
-%left KW_ELSE
 %%
 
 program: programh 
@@ -165,7 +164,7 @@ program: programh
                 $$ = Value::Lol;
             }
 
-    ifstatement: KW_IF '(' assignment ')' block KW_ELSE block
+    ifstatement: KW_IF '(' assignment ')' block
             {
                 $$ = Value::Lol;
             }
