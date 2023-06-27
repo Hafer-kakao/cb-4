@@ -93,20 +93,20 @@ program: programh
 
     functioncall: id '(' assignmentlist ')'
             {
-                $$ = Value::Functioncall($1, $<Assignmentlist>3);
+                $$ = Value::None;
             }
         | id '(' ')'
             {
-                $$ = Value::Functioncall($1, vec![ ]);
+                $$ = Value::None;
             }
 
     assignmentlist: assignment ',' assignmentlist
             {
-                $$ = Value::Assignmentlist( $<Assignmentlist>3.insert(0, $1));
+                $$ = Value::None;
             }
         | assignment
             {
-                $$ = Value::Assignmentlist( vec![ $1 ] );
+                $$ = Value::None;
             }
 
     statementlist: block statementlist
@@ -319,63 +319,63 @@ program: programh
 
     op2: '*' 
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | '/'
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | AND
             {
-                $$ = $1;
+                $$ = Value::None;
             }
 
     factor: CONST_INT
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | CONST_FLOAT
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | CONST_BOOLEAN
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | functioncall
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | id
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | '(' assignment ')'
             {
-                $$ = $2;
+                $$ = Value::None;
             }
 
 
     type: KW_BOOLEAN
             { 
-                $$ = $1;
+                $$ = Value::None;
             }
         | KW_FLOAT
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | KW_INT
             {
-                $$ = $1;
+                $$ = Value::None;
             }
         | KW_VOID
             {
-                $$ = $1;
+                $$ = Value::None;
             }
 
     id: ID 
             {
-                $$ = $1;
+                $$ = Value::None;
             }
 
 %%
