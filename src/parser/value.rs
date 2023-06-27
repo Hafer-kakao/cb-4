@@ -17,7 +17,12 @@ pub enum Value {
     /// Required variant, parser expects it to be defined.
     /// Represents a token that is returned from a Lexer
     Token(Token),
+
+    Functioncall(Value, Vec<Value>),
+
+    Assignmentlist(Vec<Value>)
 }
+
 
 impl Default for Value {
     fn default() -> Self {
